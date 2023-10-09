@@ -41,44 +41,44 @@
     </nav>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-6 container-form">
-                <form action="" id="form_register_student">
-                    <div class="mb-3">
-                        <label for="num_laboratorio">Número de laboratorio</label>
-                        <select name="num_laboratorio" id="num_laboratorio" class="form-select">
-                            <option value="1">Laboratorio 1</option>
-                            <option value="2">Laboratorio 2</option>
-                            <option value="3">Laboratorio 3</option>
-                            <option value="4">Laboratorio 4</option>
-                            <option value="5">Laboratorio 5</option>
-                            <option value="6" selected>Laboratorio 6</option>
-                            <option value="7">Laboratorio 7</option>
-                            <option value="8">Laboratorio 8</option>
-                            <option value="9">Laboratorio 9</option>
-                            <option value="10">Laboratorio 10</option>
-                            <option value="11">Laboratorio 11</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="tipo">Tipo de documento</label>
-                        <select name="tipo" id="tipo" class="form-select" required>
-                            <option value="1">DNI</option>
-                            <option value="2">Carnet de biblioteca</option>
-                            <option value="3">Carnet universitario</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="numero_documento" id="documento_id">Número de documento</label>
-                        <input type="text" name="numero_documento" id="numero_documento" class="form-control" required>
-                    </div>
-                    <div class="mb-3 text-center">
-                        <input type="submit" class="btn btn-primary" value="Registrar">
-                    </div>
-                </form>
-            </div>
             <div class="col-12 col-md-6">
                 <div id="reader"></div>
             </div>
+            <div class="col-12 col-md-6 container-form">
+              <form action="" id="form_register_student">
+                  <div class="mb-3">
+                      <label for="num_laboratorio">Número de laboratorio</label>
+                      <select name="num_laboratorio" id="num_laboratorio" class="form-select">
+                          <option value="1">Laboratorio 1</option>
+                          <option value="2">Laboratorio 2</option>
+                          <option value="3">Laboratorio 3</option>
+                          <option value="4">Laboratorio 4</option>
+                          <option value="5">Laboratorio 5</option>
+                          <option value="6" selected>Laboratorio 6</option>
+                          <option value="7">Laboratorio 7</option>
+                          <option value="8">Laboratorio 8</option>
+                          <option value="9">Laboratorio 9</option>
+                          <option value="10">Laboratorio 10</option>
+                          <option value="11">Laboratorio 11</option>
+                      </select>
+                  </div>
+                  <div class="mb-3">
+                      <label for="tipo">Tipo de documento</label>
+                      <select name="tipo" id="tipo" class="form-select" required>
+                          <option value="1">DNI</option>
+                          <option value="2">Carnet de biblioteca</option>
+                          <option value="3">Carnet universitario</option>
+                      </select>
+                  </div>
+                  <div class="mb-3">
+                      <label for="numero_documento" id="documento_id">Número de documento</label>
+                      <input type="text" name="numero_documento" id="numero_documento" class="form-control" required>
+                  </div>
+                  <div class="mb-3 text-center">
+                      <input type="submit" class="btn btn-primary" value="Registrar">
+                  </div>
+              </form>
+          </div>
         </div>
     </div>
     <script type="module" src="firebase.js"></script>
