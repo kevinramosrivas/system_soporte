@@ -5,14 +5,20 @@ function onScanSuccess(decodedText, decodedResult) {
     document.getElementById('numero_documento').value = decodedText;
   }
   
-  function onScanFailure(error) {
+function onScanFailure(error) {
     // handle scan failure, usually better to ignore and keep scanning.
     // for example:
     //console.warn(`Code scan error = ${error}`);
-  }
+}
   
-  let html5QrcodeScanner = new Html5QrcodeScanner(
+let html5QrcodeScanner = new Html5QrcodeScanner(
     "reader",
     { fps: 40, qrbox: {width: 250, height: 250} },
     /* verbose= */ false);
-  html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+
+html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+
+
+window.addEventListener('load', () => {
+
+});
