@@ -62,7 +62,7 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="tipo">Tipo de documento</label>
+                        <label for="tipo_documento">Tipo de documento</label>
                         <select name="tipo_documento" id="tipo_documento" class="form-select" required>
                             <option value="1">DNI</option>
                             <option value="2">Carnet de biblioteca</option>
@@ -72,6 +72,13 @@
                     <div class="mb-3">
                         <label for="numero_documento" id="documento_id">Número de documento</label>
                         <input type="text" name="numero_documento" id="numero_documento" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="tipo_evento">Ingreso/Salida</label>
+                      <select name="tipo_evento" id="tipo_evento" class="form-select" required>
+                          <option value="entrada">Ingreso</option>
+                          <option value="salida">Salida</option>
+                      </select>
                     </div>
                     <div class="mb-3 text-center">
                         <input type="submit" class="btn btn-primary" value="Registrar">

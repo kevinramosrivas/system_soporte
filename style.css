@@ -14,7 +14,7 @@ html,body {
 }
 .container{
     height: 100%;
-    margin-top: 6rem;
+    margin-top: 6.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

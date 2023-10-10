@@ -32,13 +32,16 @@ registerForm.addEventListener('submit', (e) => {
     const data = {
         numero_laboratorio: formData.get('num_laboratorio'),
         tipo_documento: formData.get('tipo_documento'),
-        numero_documento: formData.get('numero_documento')
+        numero_documento: formData.get('numero_documento'),
+        tipo_evento: formData.get('tipo_evento'),
     };
     // validar los datos del formulario
     const isValid = validateForm(data.numero_laboratorio, data.tipo_documento, data.numero_documento);
     if(isValid){
-        saveRegister(data.numero_laboratorio, data.tipo_documento, data.numero_documento);
+        saveRegister(data.numero_laboratorio, data.tipo_documento, data.numero_documento, data.tipo_evento);
     }
+    // limpiar el formulario
+    registerForm.reset();
 
 });
 

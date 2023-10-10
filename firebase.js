@@ -24,49 +24,33 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
-export const saveRegister = async(num_laboratorio, tipo_documento, numero_documento) => {
-    //verificar si existe un registro previo el mismo día
-    // si es asi regitrar como salida y si no como entrada
-    const q = query(collection(db, "registers"));
-    const q1 = query(q, where("tipo_documento", "==", tipo_documento), where("numero_documento", "==", numero_documento));
-    const q2 = query(q1, where("tipo_registro", "==", "entrada"));
-    const querySnapshot = await getDocs(q2);
-    if (querySnapshot.empty) {
-        console.log("No hay registros de entrada");
-        addRegister(num_laboratorio, tipo_documento, numero_documento, "entrada");
-    } else {
-        console.log("Hay registros de entrada");
-        addRegister(num_laboratorio, tipo_documento, numero_documento, "salida");
-    }
+export const saveRegister = (num_laboratorio, tipo_documento, numero_documento, tipo_evento) => {
+    // añadir firestore timestamp
+    addDoc(collection(db, "registers"), {
+        num_laboratorio: num_laboratorio,
+        tipo_documento: tipo_documento,
+        numero_documento: numero_documento,
+        data_created: serverTimestamp(),
+        tipo_evento: tipo_evento
+    })
+    .then((docRef) => {
+        console.log("Document written with ID: ", docRef.id);
+        Swal.fire(
+            'Registrado!',
+            `El registro de ${tipo_evento} se ha realizado correctamente!`,
+            'success'
+        )
+    })
+    .catch((error) => {
+        console.error("Error adding document: ", error);
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Algo salió mal!'
+        })
+    });
 }
 
-
-const addRegister = (num_laboratorio, tipo_documento, numero_documento, tipo_registro) => {
-        // añadir firestore timestamp
-        addDoc(collection(db, "registers"), {
-            num_laboratorio: num_laboratorio,
-            tipo_documento: tipo_documento,
-            numero_documento: numero_documento,
-            tipo_registro: tipo_registro,
-            data_created: serverTimestamp()
-        })
-        .then((docRef) => {
-            console.log("Document written with ID: ", docRef.id);
-            Swal.fire(
-                'Registrado!',
-                `El registro de ${tipo_registro} se realizó correctamente`,
-                'success'
-            )
-        })
-        .catch((error) => {
-            console.error("Error adding document: ", error);
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Algo salió mal!'
-            })
-        });
-}
 
 
 
