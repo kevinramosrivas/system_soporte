@@ -54,7 +54,7 @@ const addRegister = (num_laboratorio, tipo_documento, numero_documento, tipo_reg
             console.log("Document written with ID: ", docRef.id);
             Swal.fire(
                 'Registrado!',
-                `El registro de {tipo_registro} fue exitoso!`,
+                `El registro de ${tipo_registro} se realizó correctamente`,
                 'success'
             )
         })
