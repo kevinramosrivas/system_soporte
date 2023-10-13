@@ -1,97 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prestamo de laboratorios</title>
-    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/3/3a/UNMSM_coatofarms_seal.svg" type="image/x-icon">
-    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <nav class="navbar  fixed-top navbar-expand-md navbar-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/UNMSM_coatofarms_seal.svg" class="img-fluid" alt="" width="50px"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="offcanvas" aria-label="Close">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-                  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"></path>
-                </svg>
-              </button>
-            </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" href="#">Préstamo de laboratorio</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-    </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-6 container-form">
-                <form action="" id="form_register_student">
-                    <div class="mb-3">
-                        <label for="num_laboratorio">Número de laboratorio</label>
-                        <select name="num_laboratorio" id="num_laboratorio" class="form-select">
-                            <option value="1">Laboratorio 1</option>
-                            <option value="2">Laboratorio 2</option>
-                            <option value="3">Laboratorio 3</option>
-                            <option value="4">Laboratorio 4</option>
-                            <option value="5">Laboratorio 5</option>
-                            <option value="6" selected>Laboratorio 6</option>
-                            <option value="7">Laboratorio 7</option>
-                            <option value="8">Laboratorio 8</option>
-                            <option value="9">Laboratorio 9</option>
-                            <option value="10">Laboratorio 10</option>
-                            <option value="11">Laboratorio 11</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="tipo_documento">Tipo de documento</label>
-                        <select name="tipo_documento" id="tipo_documento" class="form-select" required>
-                            <option value="1">DNI</option>
-                            <option value="2">Carnet de biblioteca</option>
-                            <option value="3">Carnet universitario</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="numero_documento" id="documento_id">Número de documento</label>
-                        <input type="text" name="numero_documento" id="numero_documento" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                      <label for="tipo_evento">Ingreso/Salida</label>
-                      <select name="tipo_evento" id="tipo_evento" class="form-select" required>
-                          <option value="entrada">Ingreso</option>
-                          <option value="salida">Salida</option>
-                      </select>
-                    </div>
-                    <div class="mb-3 text-center">
-                        <input type="submit" class="btn btn-primary" value="Registrar">
-                    </div>
-                </form>
-            </div>
-            <div class="col-12 col-md-6">
-                <div id="reader">
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="app.js" type="module"></script>
-</body>
-</html>
+<!-- Add this script to the bottom of your HTML file -->
+<script>
+    // Check if the user is logged in
+    if (localStorage.getItem('isLoggedIn')) {
+        // If the user is logged in, redirect to home.html
+        window.location.href = './view/home.html';
+    } else {
+        // If the user is not logged in, redirect to login.html
+        window.location.href = './view/login.html';
+    }
+</script>

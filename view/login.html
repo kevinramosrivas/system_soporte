@@ -1,0 +1,67 @@
+<!-- FILEPATH: /c:/Users/ramos/Desktop/SOPORTE/system__soporte/index.html -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Login</title>
+    </head>
+    <body>
+        <h1>Login</h1>
+        <form id="login-form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+            <button type="submit">Login</button>
+        </form>
+
+        <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+        <script>
+            // Initialize Firebase
+            var firebaseConfig = {
+                apiKey: "AIzaSyASqiNgA5JxaIs1YhJ5qShSmQweH2krqTc",
+                authDomain: "soportefisiunmsm-daabe.firebaseapp.com",
+                projectId: "soportefisiunmsm-daabe",
+                storageBucket: "soportefisiunmsm-daabe.appspot.com",
+                messagingSenderId: "555771943224",
+                appId: "1:555771943224:web:63b35207abab2139dfc9cd",
+                measurementId: "G-WLW8HPFEBW"
+            };
+            firebase.initializeApp(firebaseConfig);
+
+            // Get a reference to the Firebase Auth service
+            var auth = firebase.auth();
+
+            // Add an event listener to the login form
+            var loginForm = document.getElementById('login-form');
+            loginForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the form from submitting
+
+                // Get the user's email and password
+                var email = loginForm.email.value;
+                var password = loginForm.password.value;
+
+                // Call the signInWithEmailAndPassword function to authenticate the user
+                auth.signInWithEmailAndPassword(email, password)
+                    .then(function() {
+                        // Redirect the user to the home page
+                        console.log("Login successful");
+                        //obtner la informacion del usuario
+                        var user = firebase.auth().currentUser;
+                        // guardar la informacion del usuario en el localstorage
+                        localStorage.setItem('user', JSON.stringify(user));
+                        // redireccionar a la raiz del proyecto
+                        window.location.href = 'home.html';
+                    })
+                    .catch(function(error) {
+                        // Handle errors that may occur during the authentication process
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+                        alert("Error: " + errorMessage);
+                    });
+            });
+        </script>
+    </body>
+</html>

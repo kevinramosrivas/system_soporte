@@ -2,8 +2,10 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
-import { getFirestore, collection, addDoc, serverTimestamp, getDocs, query, where
-} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, serverTimestamp, getDocs, query, where} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+import {  getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut
+
+} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -52,6 +54,31 @@ export const saveRegister = (num_laboratorio, tipo_documento, numero_documento, 
 }
 
 
+export const isAuth = () => {
+    return new Promise((resolve, reject) => {
+        onAuthStateChanged(getAuth(), (user) => {
+            if (user) {
+                console.log('Usuario logueado');
+                console.log(user);
+                resolve(true);
+            } else {
+                console.log('Usuario no logueado');
+                resolve(false);
+            }
+        }, (error) => {
+            console.log(error);
+            reject(error);
+        });
+    });
+}
+
+export const logout = () => {
+    signOut(getAuth()).then(() => {
+        console.log('Usuario deslogueado');
+    }).catch((error) => {
+        console.log(error);
+    });
+}
 
 
 

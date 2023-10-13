@@ -1,0 +1,23 @@
+html,body {
+    padding:0;
+    margin:0;
+}
+.navbar{
+    background-color: #70191c;
+}
+.offcanvas-header{
+    color: #fff;
+}
+.offcanvas{
+    background-color: #54626c;
+}
+.container{
+    height: 100%;
+    margin-top: 6.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.container-form{
+    padding: 2rem;
+}
